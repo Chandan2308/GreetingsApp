@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+		<title> Greeting Application </title>
+		<style>
+			body{	backgrounf-color:azure;	}
+			*{
+				font-size:40px;
+				
+		</style>
+	</head>
+	
+	<body>
+	<center>
+		<h1> Greeting App</h1>
+		
+		<form onSubmit="showData()">
+			<input text="text" id="name" placeholder="Enter Your Name" />
+			<input type="submit" />
+		</form>
+
+		<h2 id="msg" />
+
+	
+		<script>
+			function showData(){
+
+				event.preventDefault();
+	
+				let name = document.getElementById("name");
+				let msg = document.getElementById("msg");
+
+				if(name === ""){
+					alert("Please Enter Name ");
+					msg.innerHTML("");
+					name.focus();
+					return;
+				}
+
+				let d = new Date();
+				let hr = d.getHours();
+				let ans = "";
+
+				if(hr < 12)
+					ans = "Good Morning "+ name.value;
+				else if(hr<16)
+					ans = "Good Afternoon "+name.value;
+				else 
+					ans = "Good Evening "+name.value;
+				msg.innerHTML = ans;
+					
+			}
+		</script>
+	</center>
+	</body>
+</html>
